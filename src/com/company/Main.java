@@ -10,7 +10,18 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         try {
             String input = scanner.nextLine();
-            System.out.println(input);
+            if (input.length() == 4) {
+                System.out.println("Please re-verify PIN");
+                String verifyPIN = scanner.nextLine();
+                if (input.equals(verifyPIN)) {
+                    System.out.println("PIN is now set as " + input);
+
+                } else {
+                    System.out.println("verification failed. Please try again.");
+                }
+            } else {
+                System.out.println("Wrong enter new PIN");
+            }
         } catch (IllegalStateException ex) {
             System.out.println(ex);
         }
