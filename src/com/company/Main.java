@@ -11,19 +11,23 @@ public class Main {
         try {
             String input = scanner.nextLine();
             if (input.length() == 4) {
-                System.out.println("Please re-verify PIN");
-                String verifyPIN = scanner.nextLine();
-                if (input.equals(verifyPIN)) {
-                    System.out.println("PIN is now set as " + input);
-
-                } else {
-                    System.out.println("verification failed. Please try again.");
-                }
+                verifyPIN(scanner, input);
             } else {
                 System.out.println("Wrong enter new PIN");
             }
         } catch (IllegalStateException ex) {
             System.out.println(ex);
+        }
+    }
+
+    private static void verifyPIN(Scanner scanner, String firstPIN) {
+        System.out.println("Please re-verify PIN");
+        String verifyPIN = scanner.nextLine();
+        if (firstPIN.equals(verifyPIN)) {
+            System.out.println("PIN is now set as " + firstPIN);
+
+        } else {
+            System.out.println("verification failed. Please try again.");
         }
     }
 }
